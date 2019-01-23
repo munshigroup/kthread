@@ -1,12 +1,16 @@
 import ctypes
 import inspect
-import thread
+# python 2/3 switch
+try:
+    import thread
+except ImportError:
+    import _thread as thread
 import threading
 
 name = "kthread"
 
 def _async_raise(tid, exctype):
-    """Raises the exception"""
+    """Raises the exception, causing the thread to exit"""
     if not inspect.isclass(exctype):
         raise TypeError("Only types can be raised (not instances)")
     res = ctypes.pythonapi.PyThreadState_SetAsyncExc(ctypes.c_long(tid), ctypes.py_object(exctype))
@@ -44,6 +48,13 @@ class KThread(threading.Thread):
     def terminate(self):
         """raises SystemExit in the context of the given thread, which should 
         cause the thread to exit silently (unless caught)"""
-        # WARNING: using terminate() can introduce instability in your programs
+        # WARNING: using terminate(), kill(), or exit() can introduce instability in your programs
         # It is worth noting that terminate() will NOT work if the thread in question is blocked by a syscall (accept(), recv(), etc.)
         self.raise_exc(SystemExit)
+
+    # alias functions
+    def kill(self):
+        self.terminate()
+        
+    def exit(self):
+        self.terminate()
