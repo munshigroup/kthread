@@ -5,7 +5,7 @@ with open("README.md", "r") as fd:
 
 setuptools.setup(
     name="kthread",
-    version="0.1.1",
+    version="0.2",
     author="The Munshi Group",
     author_email="support@munshigroup.com",
     description="Killable threads in Python!",
@@ -14,6 +14,7 @@ setuptools.setup(
     url="https://github.com/munshigroup/kthread",
     packages=setuptools.find_packages(),
     classifiers=[
+        "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 2",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
