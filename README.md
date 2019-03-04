@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/munshigroup/kthread.svg?branch=master)](https://travis-ci.org/munshigroup/kthread)
+
 # kthread
 Killable threads in Python! 
 
