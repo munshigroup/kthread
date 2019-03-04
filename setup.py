@@ -3,7 +3,7 @@ import setuptools.command.test
 
 class NoseTestCommand(setuptools.command.test.test):
     def finalize_options(self):
-        super(NoseTestCommand, self).finalize_options()
+        setuptools.command.test.test.finalize_options(self)
         self.test_args = []
         self.test_suite = True
         
@@ -17,12 +17,11 @@ with open("README.md", "r") as fd:
 
 setuptools.setup(
     name="kthread",
-    version="0.2",
+    version="0.2.1",
     author="The Munshi Group",
     author_email="support@munshigroup.com",
     description="Killable threads in Python!",
     long_description=long_description,
-    long_description_content_type="text/markdown",
     keywords="threading threads terminate",
     url="https://github.com/munshigroup/kthread",
     packages=setuptools.find_packages(exclude=["tests"]),
