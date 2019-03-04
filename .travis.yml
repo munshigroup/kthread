@@ -2,7 +2,7 @@ language: python
 python:
   - "2.7"
   - "3.6"
-script: python -m ./tests/kthread_test.py
+script: python ./setup.py test
 notifications:
   email:
     recipients:
