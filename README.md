@@ -21,12 +21,14 @@ To install this package, run the following command:
 
     >>> import time
     >>> import kthread
+    >>> import sys
     >>> def func():
     >>>     try:
     >>>         while True:
     >>>             time.sleep(0.2)
     >>>     finally:
-    >>>         print "Greetings from Vice City!"
+    >>>         sys.stdout.write("Greetings from Vice City!\n")
+    >>>         sys.stdout.flush()
     >>>
     >>> t = kthread.KThread(target = func, name = "KillableThread1")
     >>> t.start()
