@@ -17,11 +17,12 @@ with open("README.md", "r") as fd:
 
 setuptools.setup(
     name="kthread",
-    version="0.2.1",
+    version="0.2.2",
     author="The Munshi Group",
     author_email="support@munshigroup.com",
     description="Killable threads in Python!",
     long_description=long_description,
+    long_description_content_type="text/markdown",
     keywords="threading threads terminate",
     url="https://github.com/munshigroup/kthread",
     packages=setuptools.find_packages(exclude=["tests"]),
