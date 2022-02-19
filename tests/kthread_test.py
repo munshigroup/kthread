@@ -16,13 +16,13 @@ class DefaultKThreadTestCase(unittest.TestCase):
         
     def runTest(self):
         self.kthread.start()
-        self.assertTrue(self.kthread.isAlive(), "KThread failed to start")
+        self.assertTrue(self.kthread.is_alive(), "KThread failed to start")
         # let it run for some time
         time.sleep(5)
         self.kthread.terminate()
         # give it time to process exception
         time.sleep(1)
-        self.assertFalse(self.kthread.isAlive(), "KThread failed to stop")
+        self.assertFalse(self.kthread.is_alive(), "KThread failed to stop")
         
     def tearDown(self):
         self.kthread.join()
